@@ -21,7 +21,7 @@ hp.epsilon = 1
 hp.epsilon_min = 0.01
 hp.epsilon_nstep = 500
 
-original_env = gym.make('mouseCl-v0')
+original_env = gym.make('mouseCl-v1')
 test_env = EnvTest(original_env.observation_space)
 player = Player(original_env.observation_space, test_env.action_space)
 o = test_env.reset()

@@ -28,6 +28,7 @@ Just running the test longer does not help much. Think once more before trying s
 
 ## Tests
 
-1. pass
+1. Recorded Loss, as loss stands for TD. Ran 10k steps each. (Simple linear vs Original model)
+    -__Result__: As expected, linear model's loss increases as steps proceeds, while original model did not grow higher after about 3k steps.
 
 ## Diagnosis
