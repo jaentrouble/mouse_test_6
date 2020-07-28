@@ -181,7 +181,7 @@ class Player():
         return q
 
     @tf.function
-    def train_step(self, o, r, d, a, sp_batch):
+    def train_step(self, o, r, d, a, sp_batch, total_step):
         target_q = self.t_model(sp_batch, training=False)
         q_samp = r + tf.cast(tm.logical_not(d), tf.float32) * \
                      hp.Q_discount * \
@@ -191,6 +191,7 @@ class Player():
             q = self.model(o, training=True)
             q_sa = tf.math.reduce_sum(q*mask, axis=1)
             loss = keras.losses.MSE(q_samp, q_sa)
+            tf.summary.scalar('Loss', loss, total_step)
             scaled_loss = self.model.optimizer.get_scaled_loss(loss)
 
         trainable_vars = self.model.trainable_variables
@@ -226,7 +227,8 @@ class Player():
                                                                 hp.Batch_size)
             s_batch = self.pre_processing(s_batch)
             sp_batch = self.pre_processing(sp_batch)
-            data = (s_batch, r_batch, d_batch, a_batch, sp_batch)
+            tf_total_steps = tf.constant(self.total_steps, dtype=tf.int64)
+            data = (s_batch, r_batch, d_batch, a_batch, sp_batch, tf_total_steps)
             self.train_step(*data)
 
             if not self.total_steps % hp.Target_update:
