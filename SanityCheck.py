@@ -11,6 +11,7 @@ import tensorflow as tf
 parser = argparse.ArgumentParser()
 parser.add_argument('-pf', dest='profile', action='store_true', default=False)
 parser.add_argument('-sa', dest='sanity_agent', action='store_true',default=False)
+parser.add_argument('--logname', dest='log_name', default=None)
 args = parser.parse_args()
 
 if args.sanity_agent :
@@ -28,7 +29,8 @@ hp.epsilon_nstep = 500
 
 original_env = gym.make('mouseCl-v1')
 test_env = EnvTest(original_env.observation_space)
-player = Player(original_env.observation_space, test_env.action_space)
+player = Player(original_env.observation_space, test_env.action_space,
+                log_name=args.log_name)
 o = test_env.reset()
 # for step in trange(1000) :
 #     player.act(o,training=True)
