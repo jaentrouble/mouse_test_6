@@ -116,9 +116,10 @@ class Player():
         inputs = layers.Input(input_shape)
         x = layers.Reshape((inputs.shape[1],
                             inputs.shape[2]*inputs.shape[3]))(inputs)
-        x = layers.Conv1D(64, 7, strides=2, activation='relu')(x)
-        x = layers.Conv1D(32, 5, strides=2, activation='relu')(x)
-        outputs = layers.Conv1D(16, 3, strides=2, activation='relu')(x)
+        x = layers.Conv1D(64, 7, strides=1, activation='relu')(x)
+        x = layers.Conv1D(128, 5, strides=2, activation='relu')(x)
+        x = layers.Conv1D(192, 3, strides=2, activation='relu')(x)
+        outputs = layers.Conv1D(256, 3, strides=2, activation='relu')(x)
         return keras.Model(inputs=inputs, outputs=outputs, 
                     name=left_or_right+'_eye')
 

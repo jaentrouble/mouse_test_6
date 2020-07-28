@@ -2,7 +2,6 @@ from sanity_env import EnvTest
 import gym
 import gym_mouse
 import numpy as np
-from sanityagent import Player
 import agent_assets.A_hparameters as hp
 from tqdm import trange
 import argparse
@@ -11,7 +10,13 @@ import sys
 import tensorflow as tf
 parser = argparse.ArgumentParser()
 parser.add_argument('-pf', dest='profile', action='store_true', default=False)
+parser.add_argument('-sa', dest='sanity_agent', action='store_true',default=False)
 args = parser.parse_args()
+
+if args.sanity_agent :
+    from sanityagent import Player
+else :
+    from Agent import Player
 
 hp.Buffer_size = 500
 hp.Learn_start = 200
