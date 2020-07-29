@@ -5,3 +5,5 @@ https://github.com/diku-dk/futhark/issues/731  -> For linux rocm
 IMPORTANT: Delete all 'CL/' wherever it says cannot open 'CL/(something)'
 
 (pyopencl directory) python setup.py install
+
+https://github.com/RadeonOpenCompute/ROCm/issues/1165 -> segmentation fault problem
