@@ -28,6 +28,19 @@ Just running the test longer does not help much. Think once more before trying s
 
 ## Tests
 
+### sanity_linear & sanity_original
+- Blue : Original model
+- Orange : Linear model
+
+> Loss (smoothing 0.95)
+![image](https://user-images.githubusercontent.com/45917844/90638358-36145600-e268-11ea-9163-67cd8df93adf.png)
+
+> Reward (smoothing 0.95)
+![image](https://user-images.githubusercontent.com/45917844/90638425-462c3580-e268-11ea-8900-0e3ba5c31aa7.png)
+
+> MaxQ (smoothing 0.95)
+![image](https://user-images.githubusercontent.com/45917844/90638531-66f48b00-e268-11ea-8529-d33e7a9fc225.png)
+
 1. Recorded Loss, as loss stands for TD. Ran 10k steps each. (Simple linear vs Original model)
     -__Result__: As expected, linear model's loss increases as steps proceeds, while original model did not grow higher after about 3k steps. *(The result log is in local computer.)*
 
