@@ -31,6 +31,19 @@ Just running the test longer does not help much. Think once more before trying s
 1. Recorded Loss, as loss stands for TD. Ran 10k steps each. (Simple linear vs Original model)
     -__Result__: As expected, linear model's loss increases as steps proceeds, while original model did not grow higher after about 3k steps. *(The result log is in local computer.)*
 
+### new_model
+> Loss (smoothing 0.95)
+![image](https://user-images.githubusercontent.com/45917844/90637903-8f2fba00-e267-11ea-879a-456ae3708a86.png)
+
+> Reward (smoothing 0.95)
+![image](https://user-images.githubusercontent.com/45917844/90637955-9f479980-e267-11ea-83bb-dd0d01a6e55c.png)
+
+> Score (smoothing 0.95)
+![image](https://user-images.githubusercontent.com/45917844/90638066-c8682a00-e267-11ea-9bd8-562d922aa25c.png)
+
+> MaxQ (smoothing 0.95)
+![image](https://user-images.githubusercontent.com/45917844/90638011-b4242d00-e267-11ea-8619-055947c0263f.png)
+
 2. More complex model test. For accurate comparison, the model starts without pre-learned model, and the apple reward is 1.01. (Movement punishment is set to -0.01)
 
 ## Diagnosis
